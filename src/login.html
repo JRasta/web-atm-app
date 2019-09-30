@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>New Wave Financial Corp</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap imports -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <!-- AXIOS import code -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <!-- Custom imports -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script type="text/javascript" src="./js/app.js"></script>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="jumbotron">
+            <p class="app-header">New Wave Financial Corp</p>
+            <img class="app-icon" src="imgs/bank-icon.svg" alt="Bank Icon"/>
+        </div>
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <p class="pinTitle">Please enter your pin below:</p>
+                <form class="form-inline" id="postForm">
+                    <div class="form-group">
+                        <input type="text" id="pin1" autofocus>
+                        <input type="text" id="pin2">
+                        <input type="text" id="pin3">
+                        <input type="text" id="pin4">
+                    </div>
+                    <div class="col">
+                        <button onclick="performPINRequest()"><a href="account.html">Submit</a></button>
+                    </div>
+                    <div class="col">
+                        <button><a href="error.html">Clear</a></button>
+                    </div>
+                </form>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+<!--    <div>Icons made by <a href="https://www.flaticon.com/authors/srip" title="srip">srip</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
+</body>
+</html>

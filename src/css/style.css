@@ -1,0 +1,114 @@
+/* Basic HTML elements CSS */
+body {
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #232B2B;
+    color: #DC3D24;
+    font-size: 1.5em;
+    /* remove */
+    /*border: 3px solid black;*/
+    font-family: 'Harlow Solid', cursive;
+}
+
+input {
+    color: #DC3D24; /* Text color */
+    background-color: transparent; /* Remove background color */
+    border: 0;
+    border-bottom: 2px solid #DC3D24; /* Border thickness, line style, and color */
+    outline: 0;
+    width: 5%;
+    margin-left: 3em;
+    text-align: center;
+    margin-bottom: 4em;
+}
+
+label {
+    margin-right: 3em;
+}
+
+.col {
+    /* remove */
+    /*border: 3px solid black;*/
+    max-width: 50%;
+}
+
+/* Button CSS */
+button {
+    color: #DC3D24; /* Text color */
+    background-color: transparent; /* Remove background color */
+    border: 2px solid #DC3D24; /* Border thickness, line style, and color */
+    border-radius: 5px; /* Adds curve to border corners */
+    text-transform: uppercase; /* Make letters uppercase */
+    font-family: Arial, serif;
+}
+
+a:link, a:visited {
+    color: #DC3D24;
+    padding: 5px 15px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+}
+
+
+/* Jumbotron CSS */
+.jumbotron {
+    background-color: #232B2B;
+    padding: 1rem;
+}
+
+.app-icon {
+    height: 100px;
+    position: absolute;
+    top: 45px;
+    left: 30%;
+}
+
+.app-header {
+    background-color: #232B2B;
+    min-height: 11vh;
+    display: flex;
+    flex-direction: column;
+    color: #DC3D24;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 40px;
+    padding-top: 2.8rem;
+}
+
+
+/* Carousel CSS */
+#carousel {
+    height: 310px;
+    width: 240px;
+    float: right;
+    padding-top: 2rem;
+    padding-right: 1rem;
+}
+
+.carousel-img {
+    height:90%;
+    width: 90%;
+    color: white;
+}
+
+.carousel-text {
+    font-size: 20px;
+    padding-top: 1rem;
+}
+
+
+
+/* Small CSS changes */
+.pinTitle {
+    padding-bottom: 2em;
+    padding-top: 1em;
+}
+
+
+/* Import fonts */
+@font-face {
+    font-family: "Harlow Solid";
+    src: url(../fonts/harlow_solid_regular.ttf);
+}
