@@ -9,15 +9,15 @@ async function performPINRequest() {
             'Content-Type': 'application/json',
         }, pin: JSON.stringify(PIN) })
         .then(function (response) {
-            alert('Content found');
             balance = response.data.currentBalance;
-            // window.location.href = 'account.html';
+            let currentBalance = JSON.stringify(balance);
+            localStorage.setItem('currentBalance', currentBalance);
+            window.location.href = 'account.html';
         })
             .catch(function (response) {
                 alert(response.message);
-                // window.location.href = 'error.html';
+                window.location.href = 'error.html';
         });
-    return balance;
 }
 
 
@@ -30,8 +30,8 @@ function concatPIN() {
     return Number(totalPIN);
 }
 
-function callBalance() {
-    debugger;
-    alert(balance);
-    // document.getElementById('balance').innerHTML = balance;
+function checkBalance() {
+    document.getElementById("bal").innerHTML = JSON.parse(localStorage.getItem('currentBalance'));
 }
+
+
