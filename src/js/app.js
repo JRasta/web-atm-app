@@ -1,18 +1,8 @@
 let balance, message;
 let overdraft = 100;
 
-let machine = {
-    fivePounds: 4,
-    tenPounds: 15,
-    twentyPounds: 7
-}
-
 async function performPINRequest() {
     let PIN = concatPIN();
-
-    // remove later
-    alert(PIN);
-
     const resp = await axios.post(`https://frontend-challenge.screencloud-michael.now.sh/api/pin/`, {
         headers: {
             'Content-Type': 'application/json',
@@ -40,6 +30,7 @@ function concatPIN() {
     return Number(totalPIN);
 }
 
+
 function clearPIN() {
     document.getElementById("pin1").value = '';
     document.getElementById("pin2").value = '';
@@ -48,29 +39,35 @@ function clearPIN() {
     document.getElementById("pin1").focus();
 }
 
+
 function checkBalance() {
     document.getElementById("bal").innerHTML = "£ " + JSON.parse(localStorage.getItem('currentBalance'));
     let custOD = JSON.stringify(overdraft);
     localStorage.setItem('overdraft', custOD);
 }
 
+
 function displayError() {
     document.getElementById("errorMsg").innerHTML = localStorage.getItem('errorMessage');
 }
 
+
 function logout() {
     window.location.href = 'index.html'
 }
+
 
 function depositMoney() {
     let transaction = "Deposit";
     constructionModal(transaction);
 }
 
+
 function transferMoney() {
     let transaction = "Transfer";
     constructionModal(transaction);
 }
+
 
 function calculateAmount() {
     let withdrawalAmt = document.getElementById("amount").value;
@@ -109,6 +106,7 @@ function calculateAmount() {
     }
 }
 
+
 function constructionModal(transaction) {
     let modal = document.getElementById("constructionModal");
     let span = document.getElementsByClassName("close")[0];
@@ -128,6 +126,8 @@ function constructionModal(transaction) {
         }
     }
 }
+
+
 function errorModal() {
     let errorModal = document.getElementById("errorModal");
     let errorSpan = document.getElementsByClassName("errorClose")[0];
