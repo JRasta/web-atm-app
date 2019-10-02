@@ -1,5 +1,11 @@
 let balance, message;
 
+let machine = {
+    fivePounds: 4,
+    tenPounds: 15,
+    twentyPounds: 7
+}
+
 async function performPINRequest() {
     let PIN = concatPIN();
 
@@ -42,11 +48,52 @@ function clearPIN() {
 }
 
 function checkBalance() {
-    document.getElementById("bal").innerHTML = JSON.parse(localStorage.getItem('currentBalance'));
+    document.getElementById("bal").innerHTML = "£ " + JSON.parse(localStorage.getItem('currentBalance'));
 }
 
 function displayError() {
     document.getElementById("errorMsg").innerHTML = localStorage.getItem('errorMessage');
 }
 
+function logout() {
+    window.location.href = 'index.html'
+}
+
+function withdrawMoney() {
+
+}
+
+function depositMoney() {
+    let transaction = "Deposit";
+    createModal(transaction);
+}
+
+function transferMoney() {
+    let transaction = "Transfer";
+    createModal(transaction);
+}
+
+function calculateAmount() {
+
+}
+
+function createModal(transaction) {
+    let modal = document.getElementById("constructionModal");
+    let span = document.getElementsByClassName("close")[0];
+    document.getElementById("modal-title").innerHTML = transaction;
+
+    modal.style.display = "block";
+
+    span.onclick = function() {
+        modal.style.display = "none";
+        document.getElementById("amount").focus();
+    }
+
+    window.onclick = function(event) {
+        if (event.target === modal) {
+            modal.style.display = "none";
+            document.getElementById("amount").focus();
+        }
+    }
+}
 
