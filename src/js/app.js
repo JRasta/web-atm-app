@@ -87,6 +87,7 @@ function calculateAmount() {
             if (currentAmt < 0){
                 overdraftAmt = overdraft - withdrawalAmt;
             } else {
+                warningModal();
                 overdraftAmt = (overdraft + currentAmt) - withdrawalAmt;
             }
 
@@ -142,6 +143,26 @@ function errorModal() {
     window.onclick = function(event) {
         if (event.target === errorModal) {
             errorModal.style.display = "none";
+            document.getElementById("amount").focus();
+        }
+    }
+}
+
+
+function warningModal() {
+    let warningModal = document.getElementById("warningModal");
+    let warningSpan = document.getElementsByClassName("warningClose")[0];
+
+    warningModal.style.display = "block";
+
+    warningSpan.onclick = function() {
+        warningModal.style.display = "none";
+        document.getElementById("amount").focus();
+    }
+
+    window.onclick = function(event) {
+        if (event.target === warningModal) {
+            warningModal.style.display = "none";
             document.getElementById("amount").focus();
         }
     }
