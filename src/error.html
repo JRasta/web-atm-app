@@ -20,9 +20,15 @@
 <div class="container-fluid">
     <div class="jumbotron">
         <p class="app-header">New Wave Financial Corp</p>
-        <img class="app-icon" src="imgs/bank-icon.svg" />
+        <img class="app-icon" src="imgs/bank-icon.svg" alt="Bank Icon"/>
     </div>
-    <h1>Error!</h1>
+    <script>
+        window.onload = function(){
+            displayError();
+        };
+    </script>
+    <h1 id="errorMsg"></h1>
+    <button><a href="login.html">Retry</a></button>
 </div>
 <!--    <div>Icons made by <a href="https://www.flaticon.com/authors/srip" title="srip">srip</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>-->
 </body>
