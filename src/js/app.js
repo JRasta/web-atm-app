@@ -1,4 +1,5 @@
 let balance, message;
+let overdraft = 100;
 
 let machine = {
     fivePounds: 4,
@@ -49,6 +50,8 @@ function clearPIN() {
 
 function checkBalance() {
     document.getElementById("bal").innerHTML = "£ " + JSON.parse(localStorage.getItem('currentBalance'));
+    let custOD = JSON.stringify(overdraft);
+    localStorage.setItem('overdraft', custOD);
 }
 
 function displayError() {
@@ -59,25 +62,54 @@ function logout() {
     window.location.href = 'index.html'
 }
 
-function withdrawMoney() {
-
-}
-
 function depositMoney() {
     let transaction = "Deposit";
-    createModal(transaction);
+    constructionModal(transaction);
 }
 
 function transferMoney() {
     let transaction = "Transfer";
-    createModal(transaction);
+    constructionModal(transaction);
 }
 
 function calculateAmount() {
+    let withdrawalAmt = document.getElementById("amount").value;
+    withdrawalAmt = Number(withdrawalAmt);
 
+    let currentAmt = JSON.parse(localStorage.getItem('currentBalance'));
+    let overdraft = JSON.parse(localStorage.getItem('overdraft'));
+    let newAmt = 0, overdraftAmt = 0;
+
+    if (withdrawalAmt > currentAmt && overdraft === 0) {
+        errorModal();
+    } else {
+        newAmt = currentAmt - withdrawalAmt;
+        if (newAmt < 0 && overdraft !== 0){
+            debugger;
+
+            if (currentAmt < 0){
+                overdraftAmt = overdraft - withdrawalAmt;
+            } else {
+                overdraftAmt = (overdraft + currentAmt) - withdrawalAmt;
+            }
+
+            if (overdraftAmt >= 0) {
+                overdraftAmt = JSON.stringify(overdraftAmt);
+                localStorage.setItem('overdraft', overdraftAmt);
+            } else {
+                errorModal();
+                return;
+            }
+        }
+        newAmt = JSON.stringify(newAmt);
+        localStorage.setItem('currentBalance', newAmt);
+        document.getElementById("amount").value='';
+        document.getElementById("bal").innerHTML = "£ " + JSON.parse(localStorage.getItem('currentBalance'));
+        document.getElementById("amount").focus();
+    }
 }
 
-function createModal(transaction) {
+function constructionModal(transaction) {
     let modal = document.getElementById("constructionModal");
     let span = document.getElementsByClassName("close")[0];
     document.getElementById("modal-title").innerHTML = transaction;
@@ -96,4 +128,23 @@ function createModal(transaction) {
         }
     }
 }
+function errorModal() {
+    let errorModal = document.getElementById("errorModal");
+    let errorSpan = document.getElementsByClassName("errorClose")[0];
+
+    errorModal.style.display = "block";
+
+    errorSpan.onclick = function() {
+        errorModal.style.display = "none";
+        document.getElementById("amount").focus();
+    }
+
+    window.onclick = function(event) {
+        if (event.target === errorModal) {
+            errorModal.style.display = "none";
+            document.getElementById("amount").focus();
+        }
+    }
+}
+
 

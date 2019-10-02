@@ -34,13 +34,13 @@
                     <!-- Links -->
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <button onclick="withdrawMoney()"><a href="#">Withdraw</a></button>
+                            <button><a href="#">Withdraw</a></button>
                         </li>
                         <li class="nav-item">
                             <button onclick="depositMoney()"><a href="#" id="deposit">Deposit</a></button>
                         </li>
                         <li class="nav-item">
-                            <button onclick="transferMoney()"><a href="#" id="transfer">Transfer</a>
+                            <button onclick="transferMoney()"><a href="#" id="transfer">Transfer</a></button>
                         </li>
                         <li class="nav-item">
                             <button onclick="logout()"><a href="#" id="logout">Logout</a></button>
@@ -56,9 +56,7 @@
                 </div>
                     <h1 id="transactionTitle">Withdraw Amount:</h1>
                     <input id="amount" maxlength="3" type="text" autofocus />
-                    <div>
-                        <button id="submitTransaction" onclick="calculateAmount()">Submit</button>
-                    </div>
+                    <button id="submitTransaction" onclick="calculateAmount()">Withdraw</button>
                 </div>
             </div>
             <div class="col"></div>
@@ -68,22 +66,43 @@
         </div>
 
         <!-- Custom Modal -->
+        <!-- Construction Modal for other pages -->
         <div class="modal" id="constructionModal">
             <div class="modal-dialog">
                 <div class="modal-content">
-
                     <!-- Modal Header -->
                     <div class="modal-header">
                         <h2 class="modal-title" id="modal-title"></h2>
                         <button class="close" data-dismiss="modal">&times;</button>
                     </div>
-
                     <!-- Modal body -->
                     <div class="modal-body">
                         <h3>This is currently in development.</h3>
                         <h3 style="margin-top: 1rem;">This will be available in future releases.</h3>
                     </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <h2>New Wave Financial Corp</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
 
+        <!-- Custom Modal -->
+        <!-- Error Modal for withdrawals -->
+        <div class="modal" id="errorModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h2 class="modal-title">Insufficient Funds</h2>
+                        <button class="errorClose" data-dismiss="modal">&times;</button>
+                    </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <h3>You currently do not have enough funds to withdraw.</h3>
+                        <h3 style="margin-top: 1rem;">Please check your overdraft amount.</h3>
+                    </div>
                     <!-- Modal footer -->
                     <div class="modal-footer">
                         <h2>New Wave Financial Corp</h2>
