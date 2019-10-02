@@ -151,6 +151,19 @@ a:link, a:visited {
     cursor: pointer;
 }
 
+.errorClose {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.errorClose:hover,
+.errorClose:focus {
+    color: #DC3D24;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 
 /* Small CSS changes */
@@ -196,11 +209,15 @@ a:link, a:visited {
     outline: 0;
     width: 20%;
     margin-right: 14rem;
-    margin-top: 1rem;
+    margin-top: 3rem;
 }
 
 #submitTransaction {
     margin-right: 9rem;
+}
+
+#intro {
+    margin-bottom: 2rem;
 }
 
 
