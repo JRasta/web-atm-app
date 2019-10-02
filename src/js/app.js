@@ -1,7 +1,9 @@
-let balance;
+let balance, message;
 
 async function performPINRequest() {
     let PIN = concatPIN();
+
+    // remove later
     alert(PIN);
 
     const resp = await axios.post(`https://frontend-challenge.screencloud-michael.now.sh/api/pin/`, {
@@ -15,7 +17,8 @@ async function performPINRequest() {
             window.location.href = 'account.html';
         })
             .catch(function (response) {
-                alert(response.message);
+                message = response.response.data.error;
+                localStorage.setItem('errorMessage', message);
                 window.location.href = 'error.html';
         });
 }
@@ -30,8 +33,20 @@ function concatPIN() {
     return Number(totalPIN);
 }
 
+function clearPIN() {
+    document.getElementById("pin1").value = '';
+    document.getElementById("pin2").value = '';
+    document.getElementById("pin3").value = '';
+    document.getElementById("pin4").value = '';
+    document.getElementById("pin1").focus();
+}
+
 function checkBalance() {
     document.getElementById("bal").innerHTML = JSON.parse(localStorage.getItem('currentBalance'));
+}
+
+function displayError() {
+    document.getElementById("errorMsg").innerHTML = localStorage.getItem('errorMessage');
 }
 
 
