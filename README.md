@@ -16,7 +16,7 @@ This can be downloaded either via a ZIP file or `git clone https://github.com/JR
 
 Once cloned the web-app should be accessible on [this link](http://localhost:63342/web-atm-app/src/index.html). 
 
-If not it can be ran from an IDE within a default browser.
+If not it can be ran from within WebStorm to open in a default browser.
 
 
 
